@@ -19,12 +19,13 @@
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="http://dirkeinecke.github.io/CSS-Box-Shadow-Generator/">
 		<title>CSS Box Shadow Generator</title>
+		<link href="https://fastcdn.org/Responsive/4.1.1/responsive.min.css" rel="stylesheet">
 		<style>
 			#example_wrapper {
-				padding: 200px;
 			}
 
 			#example {
+				margin: 100px auto 100px auto;
 				width: 200px;
 				height: 200px;
 				background-color: yellow;
@@ -41,96 +42,152 @@
 		</script>
 	</head>
 	<body>
-		<h1>CSS Box Shadow Generator</h1>
-		
-		<hr>
-		
-		<script type="text/template" id="shadow_edit_template">
-			<form>
-				<p>
-					<label for="horizontal_position_range">Horizontal Position</label>
-					<br>
-					<input id="horizontal_position_range" type="range" min="-100" max="100" value="<%= horizontal_position_value %>" step="1">
-					<br>
-					<input id="horizontal_position_text" type="text" value="<%= horizontal_position_value %>" readonly> px
-				</p>
-				<p>
-					<label for="vertical_position_range">Vertical Position</label>
-					<br>
-					<input id="vertical_position_range" type="range" min="-100" max="100" value="<%= vertical_position_value %>" step="1">
-					<br>
-					<input id="vertical_position_text" type="text" value="<%= vertical_position_value %>" readonly> px
-				</p>
-				<p>
-					<label for="blur_radius_range">Blur Radius</label>
-					<br>
-					<input id="blur_radius_range" type="range" min="0" max="300" value="<%= blur_radius_value %>" step="1">
-					<br>
-					<input id="blur_radius_text" type="text" value="<%= blur_radius_value %>" readonly> px
-				</p>
-				<p>
-					<label for="spread_radius_range">Spread Radius</label>
-					<br>
-					<input id="spread_radius_range" type="range" min="-100" max="100" value="<%= spread_radius_value %>" step="1">
-					<br>
-					<input id="spread_radius_text" type="text" value="<%= spread_radius_value %>" readonly> px
-				</p>
-				<p>
-					<label for="shadow_color_color">Shadow Color</label>
-					<br>
-					<input id="shadow_color_color" type="color" value="<%= shadow_color_value %>">
-					<br>
-					<input id="shadow_color_text" type="text" value="<%= shadow_color_value %>" readonly>
-				</p>
-				<p>
-					<label for="box_color_color">Box Color</label>
-					<br>
-					<input id="box_color_color" type="color" value="<%= box_color_value %>">
-					<br>
-					<input id="box_color_text" type="text" value="<%= box_color_value %>" readonly>
-				</p>
-				<p>
-					<label for="background_color_color">Background Color</label>
-					<br>
-					<input id="background_color_color" type="color" value="<%= background_color_value %>">
-					<br>
-					<input id="background_color_text" type="text" value="<%= background_color_value %>" readonly>
-				</p>
-				<p>
-					<label for="opacity_range">Opacity</label>
-					<br>
-					<input id="opacity_range" type="range" min="0" max="1" value="<%= opacity_value %>" step="0.01">
-					<br>
-					<input id="opacity_text" type="text" value="<%= opacity_value %>" readonly>
-				</p>
-			</form>
-		</script>
+		<div class="container">
+			<header>
+				<h1>CSS Box Shadow Generator</h1>
+			</header>
+			
+			<hr>
+			
+			<script type="text/template" id="shadow_edit_template">
+				<form>
+					<div class="row">
+						<div class="col-xxs-12 col-xs-12 col-s-6 col-m-6 col-l-6">
+							<p>
+								<label for="horizontal_position_range">Horizontal Position</label>
+								<input id="horizontal_position_range" type="range" min="-100" max="100" value="<%= horizontal_position_value %>" step="1">
+								<div class="input-group">
+									<input id="horizontal_position_text" type="text" value="<%= horizontal_position_value %>" readonly><span class="input-group-addon supplement">px</span>
+								</div>
+							</p>
+						</div>
+						<div class="col-xxs-12 col-xs-12 col-s-6 col-m-6 col-l-6">
+							<p>
+								<label for="vertical_position_range">Vertical Position</label>
+								<input id="vertical_position_range" type="range" min="-100" max="100" value="<%= vertical_position_value %>" step="1">
+								<div class="input-group">
+									<input id="vertical_position_text" type="text" value="<%= vertical_position_value %>" readonly><span class="input-group-addon supplement">px</span>
+								</div>
+							</p>
+						</div>
+					</div>
 
-		<script type="text/template" id="shadow_example_template">
-			<div id="example_wrapper">
-				<div id="example"></div>				
+					<div class="row">
+						<div class="col-xxs-12 col-xs-12 col-s-6 col-m-6 col-l-6">
+							<p>
+								<label for="blur_radius_range">Blur Radius</label>
+								<input id="blur_radius_range" type="range" min="0" max="300" value="<%= blur_radius_value %>" step="1">
+								<div class="input-group">
+									<input id="blur_radius_text" type="text" value="<%= blur_radius_value %>" readonly><span class="input-group-addon supplement">px</span>
+								</div>
+							</p>
+						</div>
+						<div class="col-xxs-12 col-xs-12 col-s-6 col-m-6 col-l-6">
+							<p>
+								<label for="spread_radius_range">Spread Radius</label>
+								<input id="spread_radius_range" type="range" min="-100" max="100" value="<%= spread_radius_value %>" step="1">
+								<div class="input-group">
+									<input id="spread_radius_text" type="text" value="<%= spread_radius_value %>" readonly><span class="input-group-addon supplement">px</span>
+								</div>
+							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xxs-12 col-xs-12 col-s-12 col-m-4 col-l-4">
+							<p>
+								<label for="shadow_color_color">Shadow Color</label>
+								<div class="row">
+									<div class="col-xxs-6 col-xs-6 col-s-6 col-m-12 col-l-6">
+										<input id="shadow_color_color" type="color" value="<%= shadow_color_value %>">
+									</div>
+									<div class="col-xxs-6 col-xs-6 col-s-6 col-m-12 col-l-6">
+										<div class="input-group">
+											<input id="shadow_color_text" type="text" value="<%= shadow_color_value %>" readonly>
+										</div>
+									</div>
+								</div>
+							</p>
+						</div>
+						<div class="col-xxs-12 col-xs-12 col-s-12 col-m-4 col-l-4">
+							<p>
+								<label for="box_color_color">Box Color</label>
+								<div class="row">
+									<div class="col-xxs-6 col-xs-6 col-s-6 col-m-12 col-l-6">
+										<input id="box_color_color" type="color" value="<%= box_color_value %>">
+									</div>
+									<div class="col-xxs-6 col-xs-6 col-s-6 col-m-12 col-l-6">
+										<div class="input-group">
+											<input id="box_color_text" type="text" value="<%= box_color_value %>" readonly>
+										</div>
+									</div>
+								</div>
+							</p>
+						</div>
+						<div class="col-xxs-12 col-xs-12 col-s-12 col-m-4 col-l-4">
+							<p>
+								<label for="background_color_color">Background Color</label>
+								<div class="row">
+									<div class="col-xxs-6 col-xs-6 col-s-6 col-m-12 col-l-6">
+										<input id="background_color_color" type="color" value="<%= background_color_value %>">
+									</div>
+									<div class="col-xxs-6 col-xs-6 col-s-6 col-m-12 col-l-6">
+										<div class="input-group">
+											<input id="background_color_text" type="text" value="<%= background_color_value %>" readonly>
+										</div>
+									</div>
+								</div>
+							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xxs-12 col-xs-3 col-s-2 col-m-2 col-l-2">
+							<label for="opacity_range">Opacity</label>
+						</div>
+						<div class="col-xxs-8 col-xs-6 col-s-8 col-m-8 col-l-8">
+						<input id="opacity_range" type="range" min="0" max="1" value="<%= opacity_value %>" step="0.01">
+						</div>
+						<div class="col-xxs-4 col-xs-3 col-s-2 col-m-2 col-l-2">
+							<div class="input-group">
+								<input id="opacity_text" type="text" value="<%= opacity_value %>" readonly>
+							</div>
+						</div>
+					</div>
+				</form>
+			</script>
+	
+			<script type="text/template" id="shadow_example_template">
+				<div id="example_wrapper">
+					<div id="example"></div>				
+				</div>
+			</script>
+	
+			<script type="text/template" id="shadow_output_template">
+				<div id="output">
+					<pre></pre>
+				</div>
+			</script>
+	
+	
+			<div class="row">
+				<div class="col-xxs-12 col-xs-12 col-s-6 col-m-6 col-l-6">
+					<div id="shadow_edit_container"></div>
+				</div>
+				<div class="col-xxs-12 col-xs-12 col-s-6 col-m-6 col-l-6">
+					<div id="shadow_example_container"></div>
+				</div>
 			</div>
-		</script>
-
-		<script type="text/template" id="shadow_output_template">
-			<div id="output">
-				<pre></pre>
-			</div>
-		</script>
-
-		<div id="shadow_edit_container"></div>
-
-		<hr>
-
-		<div id="shadow_example_container"></div>
-
-		<hr>
-
-		<div id="shadow_output_container"></div>
+	
+			<hr>
+	
+			<div id="shadow_output_container"></div>
+		</div>
 
 		<script src="https://fastcdn.org/jQuery/2.1.4/jquery.min.js"></script>
 		<script src="https://fastcdn.org/Underscore.js/1.8.3/underscore-min.js"></script>
 		<script src="https://fastcdn.org/Backbone.js/1.2.3/backbone-min.js"></script>
+		<script src="https://fastcdn.org/Responsive/4.1.1/responsive.min.js"></script>
 		<script type="text/javascript">
 			// https://github.com/amussey/hex-to-rgb.js/blob/master/hex-to-rgb.js
 			function hexToRgb(hex, alpha) {
